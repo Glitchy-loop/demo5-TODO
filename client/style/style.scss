@@ -48,6 +48,14 @@ body {
                 &:not(:first-child) {
                     padding-top:2rem;
                     transition:250ms;
+                    
+                }
+
+                label {
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
 
                 input[type="checkbox"]  {
@@ -63,10 +71,18 @@ body {
                     height: 1.5rem;
                     -webkit-appearance: none;
                     appearance: none;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
                 input[type="checkbox"]:checked {
                   background-color: aquamarine;
+
+                  &:hover {
+                      cursor: pointer;
                   }
+                }
             }
         }
         #addTodo {
@@ -98,6 +114,7 @@ body {
 }
 
 .addTD {
+    
     label {
         display:flex;
         flex-direction: column;
@@ -115,5 +132,4 @@ body {
 .marked {
     color:grey;
     text-decoration:line-through;
-    opacity: .5;
 }

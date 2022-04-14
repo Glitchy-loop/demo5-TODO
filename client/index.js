@@ -25,6 +25,7 @@ const getTodos = async () => {
     item.addEventListener('click', () => {
       item.parentNode.classList.toggle('marked')
       item.classList.toggle('marked')
+      console.log(item.parentNode.textContent)
     })
   })
 }

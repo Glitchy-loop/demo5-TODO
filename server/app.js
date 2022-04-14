@@ -23,4 +23,13 @@ app.post('/tasks', (req, res) => {
   return res.send('Incorrect data')
 })
 
+app.delete('/tasks:id', (req, res) => {
+  res.send('ok')
+})
+
+// app.delete('/people:id', (req, res) => {
+//   tasks = tasks.filter(item => item.id !== Number(req.params.id))
+//   res.send({ msg: 'Deleted' })
+// })
+
 app.listen(8080, () => console.log('Server is running on port 8080'))

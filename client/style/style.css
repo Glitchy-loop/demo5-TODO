@@ -70,6 +70,10 @@ body .content .todos .todo:not(:first-child) {
   transition: 250ms;
 }
 
+body .content .todos .todo label:hover {
+  cursor: pointer;
+}
+
 body .content .todos .todo input[type="checkbox"] {
   -webkit-transition: 250ms;
   transition: 250ms;
@@ -87,8 +91,16 @@ body .content .todos .todo input[type="checkbox"] {
        appearance: none;
 }
 
+body .content .todos .todo input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
 body .content .todos .todo input[type="checkbox"]:checked {
   background-color: aquamarine;
+}
+
+body .content .todos .todo input[type="checkbox"]:checked:hover {
+  cursor: pointer;
 }
 
 body .content #addTodo {
@@ -141,6 +153,5 @@ body .content #addTodo:hover {
 .marked {
   color: grey;
   text-decoration: line-through;
-  opacity: .5;
 }
 /*# sourceMappingURL=style.css.map */
