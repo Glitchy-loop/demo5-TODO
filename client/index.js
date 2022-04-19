@@ -1,33 +1,39 @@
-const todos = document.querySelector('.todos')
-
 const getTodos = async () => {
   const res = await fetch('http://localhost:8080/tasks')
   const data = await res.json()
 
-  console.log(data)
-
+  setDate()
   updateTable(data)
 
   const allTodos = document.querySelectorAll('.todo input[type="checkbox"]')
   allTodosDivs(allTodos)
+
+  const deleteBtns = document.querySelectorAll('.todo .deleteDiv')
+  allDeleteBtns(deleteBtns)
 }
 
 getTodos()
+
+const allDeleteBtns = allBtns => {
+  allBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      let id = btn.parentNode.id
+
+      fetchDelete(id)
+
+      btn.parentElement.classList.add('fadeAway')
+      setTimeout(() => {
+        btn.parentElement.remove()
+      }, 1000)
+    })
+  })
+}
 
 const allTodosDivs = allTodos => {
   allTodos.forEach(item => {
     item.addEventListener('click', () => {
       item.parentNode.classList.toggle('marked')
       item.classList.toggle('marked')
-
-      let id = item.parentNode.parentElement.id
-
-      fetchDelete(id)
-
-      item.parentElement.parentElement.classList.add('fadeAway')
-      setTimeout(() => {
-        item.parentElement.parentElement.remove()
-      }, 1000)
     })
   })
 }
@@ -45,6 +51,8 @@ const fetchDelete = id => {
 }
 
 const updateTable = data => {
+  const todos = document.querySelector('.todos')
+
   data.forEach(todo => {
     const div = document.createElement('div')
     div.className = 'todo'
@@ -55,9 +63,17 @@ const updateTable = data => {
 
     const label = document.createElement('label')
     label.textContent = todo.text
+
+    const deleteBtn = document.createElement('div')
+    deleteBtn.className = 'deleteDiv'
+    const icon = document.createElement('i')
+    icon.className = 'fa-solid fa-eraser'
+
+    deleteBtn.append(icon)
+
     label.append(checkbox)
 
-    div.append(label)
+    div.append(label, deleteBtn)
 
     todos.append(div)
   })
@@ -96,5 +112,3 @@ const setDate = () => {
 
   todayInWords
 }
-
-setDate()

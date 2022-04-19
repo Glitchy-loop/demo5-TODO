@@ -22,7 +22,7 @@ body .content {
           flex-direction: column;
   height: auto;
   margin: 10% auto;
-  max-width: 35rem;
+  width: 35rem;
 }
 
 body .content .header {
@@ -57,7 +57,7 @@ body .content .header .date .monthAndYear {
 }
 
 body .content .header .date .monthAndYear p {
-  color: grey;
+  color: #808080;
   margin: 0;
   padding: 0;
 }
@@ -71,10 +71,34 @@ body .content .todos .todo {
   transition: 250ms;
   text-decoration: underline;
   font-size: 1.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .content .todos .todo .deleteDiv:hover {
+  cursor: pointer;
+}
+
+body .content .todos .todo .deleteDiv i {
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  color: #B4E197;
+}
+
+body .content .todos .todo .deleteDiv i:hover {
+  color: #ff0095;
+  position: relative;
+  -webkit-animation: shake 500ms linear alternate;
+          animation: shake 500ms linear alternate;
 }
 
 body .content .todos .todo:not(:first-child) {
   padding-top: 2rem;
+}
+
+body .content .todos .todo label {
+  width: 95%;
 }
 
 body .content .todos .todo label:hover {
@@ -88,6 +112,7 @@ body .content .todos .todo input[type="checkbox"] {
   border-radius: 50%;
   border: 0.2rem solid #B4E197;
   float: right;
+  margin-right: 1.5rem;
   -webkit-transition: 250ms;
   transition: 250ms;
   height: 1.5rem;
@@ -173,7 +198,7 @@ body .content .todos .todo input[type="checkbox"]:checked:hover {
 }
 
 .marked {
-  color: grey;
+  color: #808080;
   text-decoration: line-through;
 }
 
@@ -197,14 +222,14 @@ body .content .todos .todo input[type="checkbox"]:checked:hover {
             transform: translateX(-10px);
   }
   75% {
-    opacity: .33;
+    opacity: .20;
     -webkit-transform: translateX(-40px);
             transform: translateX(-40px);
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(-80px);
-            transform: translateX(-80px);
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
   }
 }
 
@@ -220,14 +245,14 @@ body .content .todos .todo input[type="checkbox"]:checked:hover {
             transform: translateX(-10px);
   }
   75% {
-    opacity: .33;
+    opacity: .20;
     -webkit-transform: translateX(-40px);
             transform: translateX(-40px);
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(-80px);
-            transform: translateX(-80px);
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
   }
 }
 
@@ -250,6 +275,100 @@ body .content .todos .todo input[type="checkbox"]:checked:hover {
   to {
     opacity: 1;
     width: 35rem;
+  }
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px);
+  }
+  10% {
+    -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+  }
+  20% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  40% {
+    -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+  }
+  50% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px);
+  }
+  60% {
+    -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+  }
+  70% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  80% {
+    -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+  }
+  90% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px);
+  }
+  10% {
+    -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+  }
+  20% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  40% {
+    -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+  }
+  50% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px);
+  }
+  60% {
+    -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+  }
+  70% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  80% {
+    -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+  }
+  90% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
   }
 }
 /*# sourceMappingURL=style.css.map */
