@@ -1,15 +1,22 @@
+const todos = document.querySelector('.todos')
+
 const getTodos = async () => {
-  const res = await fetch('http://localhost:8080/tasks')
-  const data = await res.json()
+  try {
+    const res = await fetch('http://localhost:8080/tasks')
+    const data = await res.json()
 
-  setDate()
-  updateTable(data)
+    setDate()
+    updateTable(data)
 
-  const allTodos = document.querySelectorAll('.todo input[type="checkbox"]')
-  allTodosDivs(allTodos)
+    const allTodos = document.querySelectorAll('.todo input[type="checkbox"]')
+    allTodosDivs(allTodos)
 
-  const deleteBtns = document.querySelectorAll('.todo .deleteDiv')
-  allDeleteBtns(deleteBtns)
+    const deleteBtns = document.querySelectorAll('.todo .deleteDiv')
+    allDeleteBtns(deleteBtns)
+  } catch (err) {
+    console.log(err)
+    todos.innerHTML = err || `Failed to fetch`
+  }
 }
 
 getTodos()
@@ -51,8 +58,6 @@ const fetchDelete = id => {
 }
 
 const updateTable = data => {
-  const todos = document.querySelector('.todos')
-
   data.forEach(todo => {
     const div = document.createElement('div')
     div.className = 'todo'
@@ -112,3 +117,9 @@ const setDate = () => {
 
   todayInWords
 }
+
+window.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    window.location.replace('./add.html')
+  }
+})

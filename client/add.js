@@ -34,27 +34,37 @@ const setDate = () => {
 
 setDate()
 
-let randomId = Math.floor(Math.random() * 10000)
-
 const addTodoBtn = document.querySelector('#addTodoBtn')
-const input = document.querySelector('.addTD label input[type="text"]')
+const input = document.querySelector('.addTD label textarea')
+console.log(input)
 
-addTodoBtn.addEventListener('click', () => {
+const addTodo = () => {
   let todo = input.value.trim()
+  let randomId = Math.floor(Math.random() * 10000)
 
-  fetch('http://localhost:8080/tasks', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      id: randomId,
-      task: todo
+  if (todo.length > 0) {
+    fetch('http://localhost:8080/tasks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: randomId,
+        task: todo
+      })
     })
-  })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+  }
 
   window.location.replace('./index.html')
+}
+
+addTodoBtn.addEventListener('click', addTodo)
+
+window.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    addTodo()
+  }
 })

@@ -23,14 +23,15 @@ app.get('/tasks', (req, res) => {
 // POST
 
 app.post('/tasks', (req, res) => {
-  if (req.body.task) {
+  if (req.body.task && req.body.id) {
     tasks.push({
       id: req.body.id,
       text: req.body.task
     })
     res.send('Task added successfully')
+  } else {
+    return res.status(400).send('Incorrect data')
   }
-  res.send('Incorrect data')
 })
 
 app.get('/tasks/:id', (req, res) => {

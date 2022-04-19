@@ -1,0 +1,68 @@
+.todos {
+    padding:0rem 2rem 2rem 2rem;
+
+    h1 {
+        margin:0;
+    }
+
+    .todo {
+        transition:250ms;
+        font-size:1.3rem;
+        display:flex;
+        font-style: italic;
+        text-decoration: underline;
+
+        .deleteDiv {
+            
+            &:hover {
+                cursor: pointer;
+            }
+            
+            i {
+                transition: 250ms;
+                color:$lightAccent;
+                
+                &:hover {
+                    color:#ff0095;
+                    position:relative;
+                    animation: shake 500ms linear alternate;
+                }
+            }
+        }
+
+        &:not(:first-child) {
+            padding-top:1.8rem;
+        }
+
+        label {
+            width: 95%;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        input[type="checkbox"]  {
+            appearance: none;
+            border-radius: 50%;
+            border:.2rem solid $lightAccent;
+            float: right;
+            margin-right: 1.5rem;
+            transition:250ms;
+            height: 1.5rem;
+            width: 1.5rem;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.5);
+            }
+        }
+        input[type="checkbox"]:checked {
+          background-color: $darkAccent;
+
+          &:hover {
+              cursor: pointer;
+          }
+        }
+    }
+}

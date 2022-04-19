@@ -1,0 +1,26 @@
+// Add button
+
+#addTodoBtn {
+    background-color:$lightAccent;
+    border-radius: 50%;
+    border:none;
+    box-shadow: $boxShadow;
+    color:$lightBackground;
+    font-size:2.5rem;
+    font-family: none;
+    height: 5rem;
+    left:15.2rem;
+    position:relative;
+    top:2.5rem;
+    transition:250ms;
+    width: 5rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor:pointer;
+        transform: scale(1.15);
+            
+    }
+}

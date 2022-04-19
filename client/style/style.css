@@ -1,138 +1,3 @@
-html {
-  font-family: 'Lobster', cursive;
-}
-
-body {
-  background-color: #4E944F;
-}
-
-body .content {
-  -webkit-animation: fadeIn 500ms;
-          animation: fadeIn 500ms;
-  background-color: #E9EFC0;
-  border-radius: 1rem;
-  -webkit-box-shadow: 0px 3px 15px -1px #9ff18a;
-          box-shadow: 0px 3px 15px -1px #9ff18a;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: auto;
-  margin: 10% auto;
-  width: 35rem;
-}
-
-body .content .header {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 2rem;
-}
-
-body .content .header .date {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body .content .header .date .day {
-  font-size: 2.8rem;
-  font-weight: 800;
-}
-
-body .content .header .date .monthAndYear {
-  padding-left: .5rem;
-}
-
-body .content .header .date .monthAndYear p {
-  color: #808080;
-  margin: 0;
-  padding: 0;
-}
-
-body .content .todos {
-  padding: 2rem 2rem 2rem 2rem;
-}
-
-body .content .todos .todo {
-  -webkit-transition: 250ms;
-  transition: 250ms;
-  text-decoration: underline;
-  font-size: 1.3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body .content .todos .todo .deleteDiv:hover {
-  cursor: pointer;
-}
-
-body .content .todos .todo .deleteDiv i {
-  -webkit-transition: 250ms;
-  transition: 250ms;
-  color: #B4E197;
-}
-
-body .content .todos .todo .deleteDiv i:hover {
-  color: #ff0095;
-  position: relative;
-  -webkit-animation: shake 500ms linear alternate;
-          animation: shake 500ms linear alternate;
-}
-
-body .content .todos .todo:not(:first-child) {
-  padding-top: 2rem;
-}
-
-body .content .todos .todo label {
-  width: 95%;
-}
-
-body .content .todos .todo label:hover {
-  cursor: pointer;
-}
-
-body .content .todos .todo input[type="checkbox"] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border-radius: 50%;
-  border: 0.2rem solid #B4E197;
-  float: right;
-  margin-right: 1.5rem;
-  -webkit-transition: 250ms;
-  transition: 250ms;
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-body .content .todos .todo input[type="checkbox"]:hover {
-  cursor: pointer;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-}
-
-body .content .todos .todo input[type="checkbox"]:checked {
-  background-color: #83BD75;
-}
-
-body .content .todos .todo input[type="checkbox"]:checked:hover {
-  cursor: pointer;
-}
-
 #addTodoBtn {
   background-color: #B4E197;
   border-radius: 50%;
@@ -166,6 +31,86 @@ body .content .todos .todo input[type="checkbox"]:checked:hover {
           transform: scale(1.15);
 }
 
+.todos {
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+.todos h1 {
+  margin: 0;
+}
+
+.todos .todo {
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  font-size: 1.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.todos .todo .deleteDiv:hover {
+  cursor: pointer;
+}
+
+.todos .todo .deleteDiv i {
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  color: #B4E197;
+}
+
+.todos .todo .deleteDiv i:hover {
+  color: #ff0095;
+  position: relative;
+  -webkit-animation: shake 500ms linear alternate;
+          animation: shake 500ms linear alternate;
+}
+
+.todos .todo:not(:first-child) {
+  padding-top: 1.8rem;
+}
+
+.todos .todo label {
+  width: 95%;
+}
+
+.todos .todo label:hover {
+  cursor: pointer;
+}
+
+.todos .todo input[type="checkbox"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 50%;
+  border: 0.2rem solid #B4E197;
+  float: right;
+  margin-right: 1.5rem;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.todos .todo input[type="checkbox"]:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.todos .todo input[type="checkbox"]:checked {
+  background-color: #83BD75;
+}
+
+.todos .todo input[type="checkbox"]:checked:hover {
+  cursor: pointer;
+}
+
+.addTD {
+  text-decoration: none !important;
+}
+
 .addTD label {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -179,35 +124,23 @@ body .content .todos .todo input[type="checkbox"]:checked:hover {
           flex-direction: column;
 }
 
-.addTD label input[type="text"] {
+.addTD label textarea {
   background-color: #E9EFC0;
   border-radius: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-top: 1rem;
   min-height: 2rem;
   padding: .5rem;
   -webkit-transition: 250ms;
   transition: 250ms;
   width: 80%;
+  text-decoration: none;
 }
 
-.addTD label input[type="text"]:focus {
+.addTD label textarea:focus {
   outline: none;
   -webkit-box-shadow: 0px 3px 15px -1px #9ff18a;
           box-shadow: 0px 3px 15px -1px #9ff18a;
-}
-
-.marked {
-  color: #808080;
-  text-decoration: line-through;
-}
-
-.fadeAway {
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation: fadeInLeft 1s linear;
-          animation: fadeInLeft 1s linear;
-  opacity: 0;
 }
 
 @-webkit-keyframes fadeInLeft {
@@ -370,5 +303,82 @@ body .content .todos .todo input[type="checkbox"]:checked:hover {
     -webkit-transform: translateX(0px);
             transform: translateX(0px);
   }
+}
+
+.header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem;
+}
+
+.header .date {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .date .day {
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+.header .date .monthAndYear {
+  padding-left: .5rem;
+}
+
+.header .date .monthAndYear p {
+  color: #808080;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Lobster', cursive;
+}
+
+body {
+  background-color: #4E944F;
+}
+
+body .content {
+  -webkit-animation: fadeIn 500ms;
+          animation: fadeIn 500ms;
+  background-color: #E9EFC0;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 3px 15px -1px #9ff18a;
+          box-shadow: 0px 3px 15px -1px #9ff18a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  margin: 10% auto;
+  width: 35rem;
+}
+
+.fadeAway {
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation: fadeInLeft 1s linear;
+          animation: fadeInLeft 1s linear;
+  opacity: 0;
+}
+
+.marked {
+  color: #999999;
+  text-decoration: line-through !important;
 }
 /*# sourceMappingURL=style.css.map */

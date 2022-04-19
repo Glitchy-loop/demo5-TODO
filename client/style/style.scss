@@ -1,14 +1,11 @@
-// Colors
+// CSS Imports
 
-$lightBackground: #E9EFC0;
-$darkBackground: #4E944F;
-$lightAccent: #B4E197;
-$darkAccent: #83BD75;
-$grey:#808080;
-
-$boxShadow: 0px 3px 15px -1px #9ff18a;
-
-$border-radius: 1rem;
+@import './Variables';
+@import './Buttons';
+@import './Todos';
+@import './AddTodo';
+@import './Animations';
+@import './Header';
 
 
 html {
@@ -28,203 +25,17 @@ body {
         height: auto;
         margin: 10% auto;
         width: 35rem;
-
-        .header {
-            align-items: center;
-            display:flex;
-            justify-content: space-between;
-            padding:2rem;
-
-            .date {
-                align-items: center;
-                display:flex;
-
-                .day {
-                    font-size:2.8rem;
-                    font-weight: 800;
-                }
-                .monthAndYear {
-                    padding-left:.5rem;
-
-                    p {
-                        color:$grey;
-                        margin:0;
-                        padding:0;
-                    }
-                }
-            }
-        }
-        .todos {
-            padding:2rem 2rem 2rem 2rem;
-
-            .todo {
-                transition:250ms;
-                text-decoration:underline;
-                font-size:1.3rem;
-                display:flex;
-
-                .deleteDiv {
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-                    
-                    i {
-                        transition: 250ms;
-                        color:$lightAccent;
-                        
-                        &:hover {
-                            color:#ff0095;
-                            position:relative;
-                            animation: shake 500ms linear alternate;
-                        }
-                    }
-                }
-                
-
-                &:not(:first-child) {
-                    padding-top:2rem;
-                }
-
-                label {
-                    width: 95%;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-
-                input[type="checkbox"]  {
-                    appearance: none;
-                    border-radius: 50%;
-                    border:.2rem solid $lightAccent;
-                    float: right;
-                    margin-right: 1.5rem;
-                    transition:250ms;
-                    height: 1.5rem;
-                    width: 1.5rem;
-
-                    &:hover {
-                        cursor: pointer;
-                        transform: scale(1.5);
-                    }
-                }
-                input[type="checkbox"]:checked {
-                  background-color: $darkAccent;
-
-                  &:hover {
-                      cursor: pointer;
-                  }
-                }
-            }
-        }
     }
 }
 
-// Add button
-
-#addTodoBtn {
-    background-color:$lightAccent;
-    border-radius: 50%;
-    border:none;
-    box-shadow: $boxShadow;
-    color:$lightBackground;
-    font-size:2.5rem;
-    font-family: none;
-    height: 5rem;
-    left:15.2rem;
-    position:relative;
-    top:2.5rem;
-    transition:250ms;
-    width: 5rem;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-        cursor:pointer;
-        transform: scale(1.15);
-            
-    }
-}
-
-
-.addTD {
-    
-    label {
-        align-items: center;
-        display:flex;
-        flex-direction: column;
-
-        input[type="text"] {
-            background-color: $lightBackground;
-            border-radius:$border-radius;
-            font-size:1.1rem;
-            margin-top:1rem;
-            min-height:2rem;
-            padding:.5rem;
-            transition:250ms;
-            width: 80%;
-            
-            &:focus {
-                outline:none;
-                box-shadow: $boxShadow;
-            }
-        }
-    }
-}
-
-.marked {
-    color:$grey;
-    text-decoration:line-through;
-}
 
 .fadeAway {
     animation-iteration-count: 1;
     animation:fadeInLeft 1s linear;
     opacity:0;
-
 }
-
-@keyframes fadeInLeft {
-    0% {
-        opacity: 1;
-        transform: translateX(0px);
-    }   25% {
-        opacity: .66;
-        transform: translateX(-10px);
-    }
-    75% {
-        opacity: .20;
-        transform: translateX(-40px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
+  
+.marked {
+    color:#999999;
+    text-decoration:line-through !important;
 }
-
-@keyframes fadeIn {
-    from { 
-        opacity: 0;
-        width:20rem;
-         }
-    to   { 
-        opacity: 1;
-        width: 35rem;
-         }
-}
-
-@keyframes shake {
-    0% { transform: translateX(1px); }
-    10% { transform: translateX(-3px); }
-    20% { transform: translateX(-5px); }
-    30% { transform: translateX(-5px); }
-    40% { transform: translateX(-3px); }
-    50% { transform: translateX(1px); }
-    60% { transform: translateX(3px); }
-    70% { transform: translateX(5px); }
-    80% { transform: translateX(3px,); }
-    90% { transform: translateX(1px); }
-    100% { transform: translateX(0px); }
-  }

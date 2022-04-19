@@ -1,0 +1,26 @@
+.addTD {
+    text-decoration: none !important;
+    
+    label {
+        align-items: center;
+        display:flex;
+        flex-direction: column;
+
+        textarea {
+            background-color: $lightBackground;
+            border-radius:$border-radius;
+            font-size:1.2rem;
+            margin-top:1rem;
+            min-height:2rem;
+            padding:.5rem;
+            transition:250ms;
+            width: 80%;
+            text-decoration:none;
+            
+            &:focus {
+                outline:none;
+                box-shadow: $boxShadow;
+            }
+        }
+    }
+}
