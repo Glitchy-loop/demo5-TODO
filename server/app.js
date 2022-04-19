@@ -41,8 +41,12 @@ app.get('/tasks/:id', (req, res) => {
 // DELETE
 
 app.delete('/tasks/:id', (req, res) => {
-  tasks = tasks.filter(item => item.id !== Number(req.params.id))
-  res.status(200).send({ msg: 'Deleted' })
+  if (req.params.id) {
+    tasks = tasks.filter(item => item.id !== Number(req.params.id))
+    res.status(200).send({ msg: 'Deleted' })
+  } else {
+    res.status(400).send({ msg: 'Something went wrong' })
+  }
 })
 
 // Port
