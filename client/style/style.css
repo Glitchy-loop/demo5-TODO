@@ -1,17 +1,18 @@
 html {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lobster', cursive;
 }
 
 body {
-  background-color: #fcf5ec;
+  background-color: #4E944F;
 }
 
 body .content {
-  width: 25rem;
-  height: auto;
-  margin: 0 auto;
-  margin-top: 10%;
-  background-color: #fff;
+  -webkit-animation: fadeIn 500ms;
+          animation: fadeIn 500ms;
+  background-color: #E9EFC0;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 3px 15px -1px #9ff18a;
+          box-shadow: 0px 3px 15px -1px #9ff18a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,30 +20,31 @@ body .content {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: 0px 3px 15px -1px #d8d8d8;
-          box-shadow: 0px 3px 15px -1px #d8d8d8;
+  height: auto;
+  margin: 10% auto;
+  max-width: 35rem;
 }
 
 body .content .header {
-  padding: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 2rem;
 }
 
 body .content .header .date {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 body .content .header .date .day {
@@ -55,19 +57,24 @@ body .content .header .date .monthAndYear {
 }
 
 body .content .header .date .monthAndYear p {
-  padding: 0;
-  margin: 0;
   color: grey;
+  margin: 0;
+  padding: 0;
 }
 
 body .content .todos {
-  padding: 0 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+body .content .todos .todo {
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  text-decoration: underline;
+  font-size: 1.3rem;
 }
 
 body .content .todos .todo:not(:first-child) {
   padding-top: 2rem;
-  -webkit-transition: 250ms;
-  transition: 250ms;
 }
 
 body .content .todos .todo label:hover {
@@ -75,62 +82,69 @@ body .content .todos .todo label:hover {
 }
 
 body .content .todos .todo input[type="checkbox"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 50%;
+  border: 0.2rem solid #B4E197;
+  float: right;
   -webkit-transition: 250ms;
   transition: 250ms;
-  float: right;
-  border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-  border: 0.15em solid currentColor;
-  border-radius: 50%;
-  border: .2rem solid aquamarine;
-  width: 1.5rem;
   height: 1.5rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+  width: 1.5rem;
 }
 
 body .content .todos .todo input[type="checkbox"]:hover {
   cursor: pointer;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 body .content .todos .todo input[type="checkbox"]:checked {
-  background-color: aquamarine;
+  background-color: #83BD75;
 }
 
 body .content .todos .todo input[type="checkbox"]:checked:hover {
   cursor: pointer;
 }
 
-body .content #addTodo {
+#addTodoBtn {
+  background-color: #B4E197;
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
   border: none;
-  background-color: aquamarine;
-  color: darkgrey;
-  font-size: 2rem;
-  font-weight: 300;
+  -webkit-box-shadow: 0px 3px 15px -1px #9ff18a;
+          box-shadow: 0px 3px 15px -1px #9ff18a;
+  color: #E9EFC0;
+  font-size: 2.5rem;
+  font-family: none;
+  height: 5rem;
+  left: 15.2rem;
   position: relative;
   top: 2.5rem;
-  left: 10rem;
   -webkit-transition: 250ms;
   transition: 250ms;
+  width: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-body .content #addTodo a {
-  color: grey;
-  text-decoration: none;
-}
-
-body .content #addTodo:hover {
+#addTodoBtn:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 .addTD label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,20 +152,104 @@ body .content #addTodo:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .addTD label input[type="text"] {
+  background-color: #E9EFC0;
+  border-radius: 1rem;
+  font-size: 1.1rem;
   margin-top: 1rem;
+  min-height: 2rem;
   padding: .5rem;
-  font-size: 1.5rem;
-  height: 2rem;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  width: 80%;
+}
+
+.addTD label input[type="text"]:focus {
+  outline: none;
+  -webkit-box-shadow: 0px 3px 15px -1px #9ff18a;
+          box-shadow: 0px 3px 15px -1px #9ff18a;
 }
 
 .marked {
   color: grey;
   text-decoration: line-through;
+}
+
+.fadeAway {
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation: fadeInLeft 1s linear;
+          animation: fadeInLeft 1s linear;
+  opacity: 0;
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  25% {
+    opacity: .66;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  75% {
+    opacity: .33;
+    -webkit-transform: translateX(-40px);
+            transform: translateX(-40px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-80px);
+            transform: translateX(-80px);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  25% {
+    opacity: .66;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  75% {
+    opacity: .33;
+    -webkit-transform: translateX(-40px);
+            transform: translateX(-40px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-80px);
+            transform: translateX(-80px);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    width: 20rem;
+  }
+  to {
+    opacity: 1;
+    width: 35rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    width: 20rem;
+  }
+  to {
+    opacity: 1;
+    width: 35rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -34,7 +34,9 @@ const setDate = () => {
 
 setDate()
 
-const addTodoBtn = document.querySelector('#addTodo')
+let randomId = Math.floor(Math.random() * 10000)
+
+const addTodoBtn = document.querySelector('#addTodoBtn')
 const input = document.querySelector('.addTD label input[type="text"]')
 
 addTodoBtn.addEventListener('click', () => {
@@ -46,11 +48,13 @@ addTodoBtn.addEventListener('click', () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      id: randomId,
       task: todo
     })
-    //   .then(res => res.json())
-    //   .then(data => console.log(data))
   })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
 
   window.location.replace('./index.html')
 })

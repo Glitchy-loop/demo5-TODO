@@ -1,30 +1,42 @@
+// Colors
+
+$lightBackground: #E9EFC0;
+$darkBackground: #4E944F;
+$lightAccent: #B4E197;
+$darkAccent: #83BD75;
+
+$boxShadow: 0px 3px 15px -1px #9ff18a;
+
+$border-radius: 1rem;
+
+
 html {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lobster', cursive;
 }
 
 body {
-    background-color: #fcf5ec;
+    background-color: $darkBackground;
 
     .content {
-        width: 25rem;
-        height: auto;
-        margin: 0 auto;
-        margin-top:10%;
-        background-color: #fff;
+        animation:fadeIn 500ms;
+        background-color: $lightBackground;
+        border-radius: $border-radius;
+        box-shadow: $boxShadow;
         display:flex;
         flex-direction: column;
-        box-shadow: 0px 3px 15px -1px #d8d8d8;
-
+        height: auto;
+        margin: 10% auto;
+        max-width: 35rem;
 
         .header {
-            padding:2rem;
+            align-items: center;
             display:flex;
             justify-content: space-between;
-            align-items: center;
+            padding:2rem;
 
             .date {
-                display:flex;
                 align-items: center;
+                display:flex;
 
                 .day {
                     font-size:2.8rem;
@@ -34,21 +46,23 @@ body {
                     padding-left:.5rem;
 
                     p {
-                        padding:0;
-                        margin:0;
                         color:grey;
+                        margin:0;
+                        padding:0;
                     }
                 }
             }
         }
         .todos {
-            padding:0 2rem 2rem 2rem;
+            padding:2rem 2rem 2rem 2rem;
 
             .todo {
+                transition:250ms;
+                text-decoration:underline;
+                font-size:1.3rem;
+                
                 &:not(:first-child) {
                     padding-top:2rem;
-                    transition:250ms;
-                    
                 }
 
                 label {
@@ -59,25 +73,21 @@ body {
                 }
 
                 input[type="checkbox"]  {
-                    transition:250ms;
-                    float: right;
-                    border-radius: 50%;
-                    width: 1rem;
-                    height: 1rem;
-                    border: 0.15em solid currentColor;
-                    border-radius: 50%;
-                    border:.2rem solid aquamarine;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    -webkit-appearance: none;
                     appearance: none;
+                    border-radius: 50%;
+                    border:.2rem solid $lightAccent;
+                    float: right;
+                    transition:250ms;
+                    height: 1.5rem;
+                    width: 1.5rem;
 
                     &:hover {
                         cursor: pointer;
+                        transform: scale(1.5);
                     }
                 }
                 input[type="checkbox"]:checked {
-                  background-color: aquamarine;
+                  background-color: $darkAccent;
 
                   &:hover {
                       cursor: pointer;
@@ -85,46 +95,58 @@ body {
                 }
             }
         }
-        #addTodo {
-            border-radius: 50%;
-            width: 5rem;
-            height: 5rem;
-            border:none;
-            background-color:aquamarine;
-            color:darkgrey;
-            font-size:2rem;
-            font-weight: 300;
-            position:relative;
-            top:2.5rem;
-            left:10rem;
-            transition:250ms;
-
-            a {
-                color:grey;
-                text-decoration: none;
-            }
-
-            &:hover {
-                cursor:pointer;
-
-                transform: scale(1.1);
-            }
-        }
     }
 }
+
+// Add button
+
+#addTodoBtn {
+    background-color:$lightAccent;
+    border-radius: 50%;
+    border:none;
+    box-shadow: $boxShadow;
+    color:$lightBackground;
+    font-size:2.5rem;
+    font-family: none;
+    height: 5rem;
+    left:15.2rem;
+    position:relative;
+    top:2.5rem;
+    transition:250ms;
+    width: 5rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor:pointer;
+        transform: scale(1.15);
+            
+    }
+}
+
 
 .addTD {
     
     label {
+        align-items: center;
         display:flex;
         flex-direction: column;
-        align-items: center;
 
         input[type="text"] {
+            background-color: $lightBackground;
+            border-radius:$border-radius;
+            font-size:1.1rem;
             margin-top:1rem;
+            min-height:2rem;
             padding:.5rem;
-            font-size:1.5rem;
-            height:2rem;
+            transition:250ms;
+            width: 80%;
+            
+            &:focus {
+                outline:none;
+                box-shadow: $boxShadow;
+            }
         }
     }
 }
@@ -132,4 +154,40 @@ body {
 .marked {
     color:grey;
     text-decoration:line-through;
+}
+
+.fadeAway {
+    animation-iteration-count: 1;
+    animation:fadeInLeft 1s linear;
+    opacity:0;
+
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0px);
+    }   25% {
+        opacity: .66;
+        transform: translateX(-10px);
+    }
+    75% {
+        opacity: .33;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        width:20rem;
+         }
+    to   { 
+        opacity: 1;
+        width: 35rem;;
+         }
 }

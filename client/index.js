@@ -4,33 +4,64 @@ const getTodos = async () => {
   const res = await fetch('http://localhost:8080/tasks')
   const data = await res.json()
 
+  console.log(data)
+
+  updateTable(data)
+
+  const allTodos = document.querySelectorAll('.todo input[type="checkbox"]')
+  allTodosDivs(allTodos)
+}
+
+getTodos()
+
+const allTodosDivs = allTodos => {
+  allTodos.forEach(item => {
+    item.addEventListener('click', () => {
+      item.parentNode.classList.toggle('marked')
+      item.classList.toggle('marked')
+
+      let id = item.parentNode.parentElement.id
+
+      fetchDelete(id)
+
+      item.parentElement.parentElement.classList.add('fadeAway')
+      setTimeout(() => {
+        item.parentElement.parentElement.remove()
+      }, 1000)
+    })
+  })
+}
+
+const fetchDelete = id => {
+  fetch(`http://localhost:8080/tasks/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+}
+
+const updateTable = data => {
   data.forEach(todo => {
     const div = document.createElement('div')
     div.className = 'todo'
+    div.id = todo.id
 
     const checkbox = document.createElement('input')
     checkbox.type = 'checkbox'
 
     const label = document.createElement('label')
-    label.textContent = todo
+    label.textContent = todo.text
     label.append(checkbox)
 
     div.append(label)
 
     todos.append(div)
   })
-  const allTodos = document.querySelectorAll('.todo input[type="checkbox"]')
-
-  allTodos.forEach(item => {
-    item.addEventListener('click', () => {
-      item.parentNode.classList.toggle('marked')
-      item.classList.toggle('marked')
-      console.log(item.parentNode.textContent)
-    })
-  })
 }
-
-getTodos()
 
 const setDate = () => {
   const today = document.querySelector('.day')
